@@ -34,11 +34,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-<<<<<<< HEAD
         const SECRET_PIN = "2015";
-=======
-        const SECRET_PIN = "2708";
->>>>>>> e71b2d0de1fa701f5030e512b50915c50387616e
 
         let pinAttempt = 0;
         let popupTimeout = null;
