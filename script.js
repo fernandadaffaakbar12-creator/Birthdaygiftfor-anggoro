@@ -34,7 +34,11 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
+<<<<<<< HEAD
         const SECRET_PIN = "2015";
+=======
+        const SECRET_PIN = "2708";
+>>>>>>> e71b2d0de1fa701f5030e512b50915c50387616e
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -1146,6 +1150,7 @@ function buatConfetti() {
     // Gelombang 3: Hujan confetti lanjutan
     setTimeout(() => burstWave(40, 0), 2000);
 }
+<<<<<<< HEAD
 
 // ==========================================
 // 8. MUSIK PLAYLIST LOGIC
@@ -1211,3 +1216,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+=======
+>>>>>>> e71b2d0de1fa701f5030e512b50915c50387616e
