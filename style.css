@@ -28,13 +28,13 @@ body {
 .aesthetic-font {
     font-family: 'Caveat', cursive;
     font-size: 3.5rem;
-    color: #ffb6c1;
-    /* Warna Baby Pink */
-    text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.4);
+    color: #87ceeb;
+    /* Warna Sky Blue */
+    text-shadow: 2px 2px 8px rgba(135, 206, 235, 0.4);
 }
 
-.baby-pink-text {
-    color: #ffb6c1 !important;
+.sky-blue-text {
+    color: #87ceeb !important;
 }
 
 .white-text {
@@ -73,32 +73,55 @@ body {
 }
 
 .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 182, 193, 0.3);
-    border-top-color: #ffb6c1;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #87ceeb;
+    transform: rotate(45deg);
+    animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+    filter: drop-shadow(0 0 15px rgba(135, 206, 235, 0.6));
+    margin-bottom: 40px;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+.spinner::before, .spinner::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #87ceeb;
+    border-radius: 50%;
+}
+
+.spinner::before {
+    left: -20px;
+    top: 0;
+}
+
+.spinner::after {
+    top: -20px;
+    left: 0;
+}
+
+@keyframes heartBeat {
+    0% { transform: rotate(45deg) scale(0.8); }
+    5% { transform: rotate(45deg) scale(0.9); }
+    10% { transform: rotate(45deg) scale(0.8); }
+    15% { transform: rotate(45deg) scale(1.1); }
+    50% { transform: rotate(45deg) scale(0.8); }
+    100% { transform: rotate(45deg) scale(0.8); }
 }
 
 .loading-text {
     font-family: 'Outfit', sans-serif;
     font-size: 1.2rem;
-    color: #ffb6c1;
+    color: #87ceeb;
     letter-spacing: 2px;
-    animation: pulse 1.5s infinite ease-in-out;
+    animation: floatText 2s infinite ease-in-out;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-5px); opacity: 1; text-shadow: 0 0 10px rgba(135, 206, 235, 0.5); }
 }
 
 
@@ -210,14 +233,14 @@ body {
 
 .bouquet-img {
     width: 200px;
-    filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.5));
+    filter: drop-shadow(0 0 20px rgba(135, 206, 235, 0.5));
 }
 
 .click-text {
     margin-top: 20px;
     font-size: 1.2rem;
     letter-spacing: 2px;
-    color: #ffb6c1;
+    color: #87ceeb;
 }
 
 @keyframes float-bouquet {
@@ -300,7 +323,7 @@ body {
     height: auto;
     margin: 20px auto 15px auto;
     display: block;
-    filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.45));
+    filter: drop-shadow(0 0 20px rgba(135, 206, 235, 0.45));
     animation: float-birthday-photo 4s ease-in-out infinite;
     border-radius: 15px;
 }
@@ -436,8 +459,8 @@ body {
 }
 
 .planet-card:hover {
-    border-color: #ffb6c1;
-    box-shadow: 0 0 25px #ffb6c1;
+    border-color: #87ceeb;
+    box-shadow: 0 0 25px #87ceeb;
 }
 
 .planet-card img {
@@ -458,21 +481,25 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* Jarak Orbit disesuaikan agar 4 kartu planet menjadi agak rapat / tidak ada bagian kosong */
+/* Jarak Orbit disesuaikan agar 5 kartu planet menjadi pas (tidak terlalu jauh atau dekat) */
 .item1 {
-    transform: rotateY(0deg) translateZ(160px);
+    transform: rotateY(0deg) translateZ(180px);
 }
 
 .item2 {
-    transform: rotateY(90deg) translateZ(160px);
+    transform: rotateY(72deg) translateZ(180px);
 }
 
 .item3 {
-    transform: rotateY(180deg) translateZ(160px);
+    transform: rotateY(144deg) translateZ(180px);
 }
 
 .item4 {
-    transform: rotateY(270deg) translateZ(160px);
+    transform: rotateY(216deg) translateZ(180px);
+}
+
+.item5 {
+    transform: rotateY(288deg) translateZ(180px);
 }
 
 /* =========================================
@@ -507,7 +534,7 @@ body {
     max-width: 90vw;
     max-height: 75vh;
     border-radius: 15px;
-    box-shadow: 0 10px 50px rgba(255, 182, 193, 0.5);
+    box-shadow: 0 10px 50px rgba(135, 206, 235, 0.5);
     transform: scale(0.7);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -516,7 +543,7 @@ body {
 #modal-iframe {
     display: none;
     border-radius: 15px;
-    box-shadow: 0 10px 50px rgba(255, 182, 193, 0.5);
+    box-shadow: 0 10px 50px rgba(135, 206, 235, 0.5);
     transform: scale(0.7);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -618,7 +645,7 @@ body {
 /* Hint text */
 .gallery-hint {
     font-size: 0.85rem;
-    color: rgba(255, 182, 193, 0.8);
+    color: rgba(135, 206, 235, 0.8);
     text-align: center;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -658,13 +685,13 @@ body {
 .gallery-slider-thumb {
     width: 30%;
     height: 100%;
-    background: linear-gradient(90deg, #ffb6c1, #ff7eb3);
+    background: linear-gradient(90deg, #87ceeb, #ff7eb3);
     border-radius: 4px;
     position: absolute;
     left: 0;
     top: 0;
     transition: left 0.1s ease-out;
-    box-shadow: 0 0 8px rgba(255, 182, 193, 0.5);
+    box-shadow: 0 0 8px rgba(135, 206, 235, 0.5);
 }
 
 .scratch-card {
@@ -754,8 +781,8 @@ body {
 }
 
 .polaroid:hover {
-    /* Efek Neon Baby Pink saat disorot */
-    box-shadow: 0 0 15px #ffb6c1, 0 0 35px #ffb6c1 !important;
+    /* Efek Neon Sky Blue saat disorot */
+    box-shadow: 0 0 15px #87ceeb, 0 0 35px #87ceeb !important;
     filter: brightness(1.1);
 }
 
@@ -828,7 +855,7 @@ body {
     max-width: 90vw;
     max-height: 90vh;
     border-radius: 15px;
-    box-shadow: 0 10px 50px rgba(255, 182, 193, 0.5);
+    box-shadow: 0 10px 50px rgba(135, 206, 235, 0.5);
     transform: scale(0.7);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -878,7 +905,7 @@ body {
 
 .now-playing-top {
     font-size: 0.65rem;
-    color: #ffb6c1;
+    color: #87ceeb;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
@@ -973,21 +1000,25 @@ body {
         font-size: 0.95rem;
     }
 
-    /* Menyesuaikan jarak orbit di HP agar 4 kartu lebih rapat */
+    /* Menyesuaikan jarak orbit di HP agar 5 kartu pas */
     .item1 {
-        transform: rotateY(0deg) translateZ(130px);
+        transform: rotateY(0deg) translateZ(150px);
     }
 
     .item2 {
-        transform: rotateY(90deg) translateZ(130px);
+        transform: rotateY(72deg) translateZ(150px);
     }
 
     .item3 {
-        transform: rotateY(180deg) translateZ(130px);
+        transform: rotateY(144deg) translateZ(150px);
     }
 
     .item4 {
-        transform: rotateY(270deg) translateZ(130px);
+        transform: rotateY(216deg) translateZ(150px);
+    }
+
+    .item5 {
+        transform: rotateY(288deg) translateZ(150px);
     }
 
     #main-content {
@@ -1040,8 +1071,8 @@ body {
     .typing-text::after {
         content: '|';
         /* Garis kursor mesin tik */
-        color: #ffb6c1;
-        /* Kursor berwarna baby pink */
+        color: #87ceeb;
+        /* Kursor berwarna Sky Blue */
         animation: blink-cursor 0.7s infinite;
         display: none;
         /* Sembunyikan kursor secara default */
@@ -1254,7 +1285,7 @@ body {
 
 .pin-popup-box {
     background: linear-gradient(145deg, rgba(30, 15, 50, 0.95), rgba(15, 10, 35, 0.98));
-    border: 1px solid rgba(255, 182, 193, 0.25);
+    border: 1px solid rgba(135, 206, 235, 0.25);
     border-radius: 24px;
     padding: 35px 30px 28px;
     text-align: center;
@@ -1262,7 +1293,7 @@ body {
     width: 85%;
     box-shadow:
         0 20px 60px rgba(0, 0, 0, 0.6),
-        0 0 40px rgba(255, 182, 193, 0.1),
+        0 0 40px rgba(135, 206, 235, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transform: scale(0) rotate(-8deg);
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -1452,12 +1483,12 @@ body {
     font-family: 'Caveat', cursive;
     font-size: 1.5rem;
     color: #fff;
-    background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6a88);
+    background: linear-gradient(135deg, #a0d8ef, #87ceeb, #6bb5d8);
     border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.4s ease;
-    box-shadow: 0 4px 20px rgba(255, 126, 179, 0.4), 0 0 30px rgba(255, 126, 179, 0.15);
+    box-shadow: 0 4px 20px rgba(135, 206, 235, 0.4), 0 0 30px rgba(135, 206, 235, 0.15);
     animation: candleBtnPulse 2.5s ease-in-out infinite;
     position: relative;
     overflow: hidden;
@@ -1477,12 +1508,12 @@ body {
 
 .btn-tiup-lilin:hover {
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 30px rgba(255, 126, 179, 0.6), 0 0 50px rgba(255, 126, 179, 0.25);
+    box-shadow: 0 8px 30px rgba(135, 206, 235, 0.6), 0 0 50px rgba(135, 206, 235, 0.25);
 }
 
 @keyframes candleBtnPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(255, 126, 179, 0.4), 0 0 30px rgba(255, 126, 179, 0.15); }
-    50% { box-shadow: 0 4px 30px rgba(255, 126, 179, 0.6), 0 0 50px rgba(255, 126, 179, 0.3); }
+    0%, 100% { box-shadow: 0 4px 20px rgba(135, 206, 235, 0.4), 0 0 30px rgba(135, 206, 235, 0.15); }
+    50% { box-shadow: 0 4px 30px rgba(135, 206, 235, 0.6), 0 0 45px rgba(135, 206, 235, 0.3); }
 }
 
 @keyframes shimmerBtn {
@@ -1532,8 +1563,8 @@ body {
 .candle-message {
     font-family: 'Caveat', cursive;
     font-size: 1.6rem;
-    color: #ffb6c1;
-    text-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    color: #87ceeb;
+    text-shadow: 0 0 15px rgba(135, 206, 235, 0.5);
     margin-bottom: 30px;
     min-height: 60px;
     opacity: 0;
@@ -1583,7 +1614,7 @@ body {
 .candle-body {
     width: 12px;
     height: 50px;
-    background: linear-gradient(180deg, #ff9ecf, #e876a8);
+    background: linear-gradient(180deg, #66ccff, #33bbff);
     border-radius: 2px 2px 0 0;
     position: relative;
     box-shadow: inset -2px 0 4px rgba(0,0,0,0.15);
@@ -1636,19 +1667,19 @@ body {
     /* Wax gradient effect */
     background: linear-gradient(
         180deg,
-        #ffcce0 0%,
-        #ffb6d3 15%,
-        #ff9ecf 30%,
-        #e876a8 55%,
-        #d65d8c 75%,
-        #c44e7d 100%
+        #cceeff 0%,
+        #99ddff 15%,
+        #66ccff 30%,
+        #33bbff 55%,
+        #00aaff 75%,
+        #0088cc 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* 3D wax-like depth with paint-order trick */
     paint-order: stroke fill;
-    -webkit-text-stroke: 3px rgba(200, 80, 130, 0.5);
+    -webkit-text-stroke: 3px rgba(0, 136, 204, 0.5);
     filter: drop-shadow(1px 2px 1px rgba(0,0,0,0.35))
             drop-shadow(-1px 0px 1px rgba(255,255,255,0.15))
             drop-shadow(0 4px 8px rgba(0,0,0,0.25));
@@ -1658,7 +1689,7 @@ body {
 
 /* Efek glow di sekitar lilin angka */
 .number-candle {
-    filter: drop-shadow(0 0 12px rgba(255, 160, 200, 0.35));
+    filter: drop-shadow(0 0 12px rgba(135, 206, 235, 0.35));
 }
 
 /* Highlight sinar di atas angka */
@@ -1779,17 +1810,17 @@ body {
 .cake-top {
     width: 200px;
     height: 18px;
-    background: linear-gradient(180deg, #ffb6c1, #ff8fa3);
+    background: linear-gradient(180deg, #8b5a2b, #704214);
     border-radius: 8px 8px 0 0;
     position: relative;
     z-index: 1;
-    box-shadow: 0 -2px 8px rgba(255, 182, 193, 0.3);
+    box-shadow: 0 -2px 8px rgba(139, 90, 43, 0.3);
 }
 
 .cake-middle {
     width: 200px;
     height: 55px;
-    background: linear-gradient(180deg, #f8e0e6, #f0c8d0);
+    background: linear-gradient(180deg, #704214, #5c3a21);
     position: relative;
     border-left: 3px solid rgba(255,255,255,0.1);
     border-right: 3px solid rgba(0,0,0,0.05);
@@ -1798,7 +1829,7 @@ body {
 .cake-bottom {
     width: 200px;
     height: 55px;
-    background: linear-gradient(180deg, #e8a0b0, #d68898);
+    background: linear-gradient(180deg, #5c3a21, #4a2f1d);
     border-radius: 0 0 8px 8px;
     position: relative;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -1821,7 +1852,7 @@ body {
     display: block;
     width: 16px;
     height: 22px;
-    background: linear-gradient(180deg, #ffb6c1, #ff9eaf);
+    background: linear-gradient(180deg, #fff5e6, #ffe4b5);
     border-radius: 0 0 50% 50%;
     animation: frostDrip 3s ease-in-out infinite alternate;
 }
@@ -1857,7 +1888,7 @@ body {
     transform: translateX(-50%);
     width: 250px;
     height: 60px;
-    background: radial-gradient(ellipse, rgba(255, 182, 193, 0.15), transparent 70%);
+    background: radial-gradient(ellipse, rgba(135, 206, 235, 0.15), transparent 70%);
     border-radius: 50%;
     z-index: 0;
 }
@@ -1899,7 +1930,7 @@ body {
 }
 
 /* =========================================
-   CONFETTI BURST (setelah lilin mati) — LEBIH MERIAH
+   CONFETTI BURST (setelah lilin mati) â€” LEBIH MERIAH
 ========================================= */
 .confetti-piece {
     position: fixed;
@@ -2014,7 +2045,7 @@ body {
 .candle-message.final-msg {
     font-size: 1.3rem;
     color: #ffffff;
-    text-shadow: 0 0 20px rgba(255, 182, 193, 0.6), 0 0 40px rgba(255, 182, 193, 0.3);
+    text-shadow: 0 0 20px rgba(135, 206, 235, 0.6), 0 0 40px rgba(135, 206, 235, 0.3);
     max-width: 320px;
     line-height: 1.6;
 }
@@ -2063,7 +2094,7 @@ body {
     background: rgba(255, 255, 255, 0.15);
     color: #fff;
     transform: translateX(-50%) scale(1.05);
-    border-color: rgba(255, 182, 193, 0.4);
+    border-color: rgba(135, 206, 235, 0.4);
 }
 
 /* =========================================
@@ -2188,7 +2219,7 @@ body {
     height: 0;
     border-left: 140px solid #ffaec9;
     border-right: 140px solid #ffaec9;
-    border-bottom: 90px solid #ffb6c1;
+    border-bottom: 90px solid #87ceeb;
     z-index: 3;
     border-radius: 0 0 10px 10px;
     transition: opacity 1s ease;

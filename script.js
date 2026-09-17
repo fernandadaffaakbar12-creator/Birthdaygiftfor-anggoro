@@ -34,7 +34,7 @@
         const pinPopupClose = document.getElementById('pin-popup-close');
 
         // DEFAULT PIN: Silakan ubah angka ini jika ingin PIN lain
-        const SECRET_PIN = "2015";
+        const SECRET_PIN = "2612";
 
         let pinAttempt = 0;
         let popupTimeout = null;
@@ -252,7 +252,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 // B. JIKA YANG DIKLIK ADALAH KARTU 3D BIASA (Bukan Lagu)
                 else if (this.classList.contains('planet-card')) {
                     modalImg.src = this.querySelector('img').src;
-                    modalImg.style.aspectRatio = "3 / 4";
+                    
+                    if (modalImg.src.includes('favorite-song')) {
+                        modalImg.style.aspectRatio = "2 / 3";
+                    } else if (modalImg.src.includes('favorite-food') || modalImg.src.includes('favorite-drink') || modalImg.src.includes('favorite-person')) {
+                        modalImg.style.aspectRatio = "9 / 16";
+                    } else {
+                        modalImg.style.aspectRatio = "3 / 4";
+                    }
 
                     const customCaption = this.getAttribute('data-caption');
                     const teksCaption = customCaption ? customCaption : this.querySelector('.planet-caption').innerText;
@@ -626,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     Math.random() * 1.5,
                     0, Math.PI * 2
                 );
-                ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.8)' : 'rgba(255,182,193,0.8)';
+                ctx.fillStyle = Math.random() > 0.5 ? 'rgba(255,255,255,0.8)' : 'rgba(135, 206, 235,0.8)';
                 ctx.fill();
             }
 
@@ -1077,7 +1084,7 @@ function tampilkanTahap3() {
 
 function buatConfetti() {
     const colors = [
-        '#ff6b81', '#ffb6c1', '#a55eea', '#6c5ce7', '#ffd700',
+        '#ff6b81', '#87ceeb', '#a55eea', '#6c5ce7', '#ffd700',
         '#ff9ff3', '#f368e0', '#ffffff', '#00d2d3', '#ff6348',
         '#7bed9f', '#ffa502', '#ff4757', '#2ed573', '#eccc68',
         '#ff7eb3', '#c56cf0', '#17c0eb', '#ffc312'
@@ -1211,3 +1218,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
