@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     if (modalImg.src.includes('favorite-song')) {
                         modalImg.style.aspectRatio = "2 / 3";
-                    } else if (modalImg.src.includes('favorite-food') || modalImg.src.includes('favorite-drink') || modalImg.src.includes('favorite-person')) {
+                    } else if (modalImg.src.includes('favorite-food') || modalImg.src.includes('favorite-drink') || modalImg.src.includes('favorite-person') || modalImg.src.includes('favorite-place')) {
                         modalImg.style.aspectRatio = "9 / 16";
                     } else {
                         modalImg.style.aspectRatio = "3 / 4";
